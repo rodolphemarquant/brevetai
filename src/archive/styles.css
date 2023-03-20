@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+body > #root > div {
+  height: 100vh;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: gray;
+}
+
+.ScormModule {
+  display: flex;
+  height: 100vh;
+}
+
+section {
+  display: flex;
+}
+
+.container {
+  display: flex;
+}
+.col {
+  flex: 1;
+  white-space: pre-wrap;
+}
+
+.cell {
+  cursor: pointer;
+  border: 1px solid black;
+  background: white;
+  transition: all 200ms linear;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  width: 30vmin;
+  height: 30vmin;
+  border: 3px solid black;
+}
+
+.noAntialias {
+  image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges; /* Firefox                        */
+  image-rendering: -o-crisp-edges; /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Universal support since 2021   */
+  image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+}

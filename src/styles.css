@@ -1,0 +1,179 @@
+#Application {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 60px 1.1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Menu Logo"
+    "Content Content";
+  font-family: Changa-Light, Roboto, serif;
+}
+
+input,
+textarea,
+button {
+  font-family: Changa-Medium, Roboto, serif !important;
+}
+
+button {
+  cursor: pointer;
+}
+#Menu {
+  grid-area: Menu;
+  background-color: white;
+}
+
+#Logo {
+  grid-area: Logo;
+  text-align: right;
+  background-color: white;
+}
+
+#Content {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 0;
+  grid-template-rows: 2.4fr 0.8fr 0.2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Main"
+    "Instructions"
+    "ProgressionBar";
+  grid-area: Content;
+}
+
+#Instructions {
+  grid-area: Instructions;
+  position: relative;
+  min-height: 0;
+}
+
+#ProgressionBar {
+  grid-area: ProgressionBar;
+  min-height: 0;
+}
+
+#Sidebar {
+  grid-area: Sidebar;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+}
+
+#Main {
+  grid-area: Main;
+  min-height: 0;
+}
+
+html,
+body,
+#Application {
+  height: 100vh;
+  margin: 0;
+  background-color: #e3ecff;
+  overflow: hidden;
+
+  @media only screen and (max-width: 600px) {
+    overflow: auto;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  /* Desktop */
+
+  #Application {
+    grid-template-columns: 2.2fr 200px;
+    grid-template-rows: 65px 2.1fr;
+    grid-template-areas:
+      "Menu Logo"
+      "Content Content";
+  }
+
+  #Logo {
+    background-color: transparent;
+  }
+
+  #Menu {
+    background-color: transparent;
+  }
+
+  #Content {
+    grid-template-columns: 24% 76%;
+    grid-template-rows: 95% 5%;
+    grid-template-areas:
+      "Instructions Main"
+      "ProgressionBar ProgressionBar";
+  }
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #628bff white;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #628bff;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+
+.bp4-progress-bar {
+  background-color: #b5cefa !important;
+  height: 8px;
+}
+
+.bp4-progress-meter {
+  background-color: #75a4ee !important;
+  transition: "width 1s ease-in-out";
+}
+/* For presentation only, no need to copy the code below 
+
+#Application * {
+  border: 1px solid red;
+  position: relative;
+}
+
+#Application *:after {
+  content: attr(id);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+*/
+.item-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.item-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1000ms, transform 500ms;
+}
+.item-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.item-exit-active {
+  opacity: 0;
+  transition: all 1.5s;
+}
